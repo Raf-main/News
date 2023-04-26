@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark py-1">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="assets/svg/logo.svg" alt="logo..." style="width:40px;height:40px; margin:auto;">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/news" i18n="Navbar news link@@Navbar-News-Link">News</a>
+        </li>
+      </ul>
+
+      <app-locale-switcher></app-locale-switcher>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-light" id="accountDropdown" data-bs-toggle="dropdown"
+             aria-expanded="false" i18n="Navbar account link@@Navbar-Account-Link">Account</a>
+          <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-xxl-end" aria-labelledby="accountDropdown">
+            <li *ngIf="!authService.isAuthenticated()">
+              <a class="dropdown-item link-light" routerLink="./login" i18n="Navbar login link@@Navbar-Login-Link">Login</a>
+            </li>
+            <li *ngIf="!authService.isAuthenticated()">
+              <a class="dropdown-item link-light" routerLink="./register" i18n="Navbar register link@Navbar-Link-Register">Register</a>
+            </li>
+            <li *ngIf="authService.isAuthenticated()" role="button" (click)="Logout()">
+              <a class="dropdown-item link-light" i18n="Navbar logout link@Navbar-Link-Logout">Logout</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

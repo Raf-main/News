@@ -1,0 +1,11 @@
+header.background {
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: #6c757d;
+  background-attachment: scroll;
+  position: relative;
+  background-size: cover;
+}

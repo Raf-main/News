@@ -1,0 +1,61 @@
+<div class="text-center mt-4">
+  <button type="button" class="btn btn-secondary m-auto" data-bs-toggle="modal" data-bs-target="#createModal" i18n="Create button@@Button-Create">Create</button>
+</div>
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="createModalLabel">New news</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="createForm" (ngSubmit)="save()" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label class="col-form-label" i18n="News title@@News-Title">Title</label>
+            <input type="text" class="form-control" formControlName="title">
+            <div *ngIf="title.touched && title.invalid"
+                class="form-control-sm text-danger">
+              <div *ngIf="title.errors?.['required']" i18n="Required validation@@Validation-Required">* Required</div>
+              <div *ngIf="title.errors?.['minlength']" i18n="MinLength validation@@Validation-MinLength">* Min length {{10}}</div>
+              <div *ngIf="title.errors?.['maxlength']" i18n="MaxLength validation@@Validation-MaxLength">* Max length {{40}}</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="col-form-label" i18n="News subtitle@@News-Subtitle">Subtitle</label>
+            <textarea type="text" class="form-control" formControlName="subtitle"></textarea>
+            <div *ngIf="subtitle.touched && subtitle.invalid"
+                class="form-control-sm text-danger">
+              <div *ngIf="subtitle.errors?.['required']" i18n="Required validation@@Validation-Required">* Required</div>
+              <div *ngIf="subtitle.errors?.['minlength']" i18n="MinLength validation@@Validation-MinLength">* Min length {{10}}</div>
+              <div *ngIf="subtitle.errors?.['maxlength']">* Max length 200</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label" i18n="News text@@News-Text">Text</label>
+            <textarea class="form-control" formControlName="text"></textarea>
+            <div *ngIf="text.touched && text.invalid"
+                class="form-control-sm text-danger">
+              <div *ngIf="text.errors?.['required']" i18n="Required validation@@Validation-Required">* Required</div>
+              <div *ngIf="text.errors?.['minlength']" i18n="MinLength validation@@Validation-MinLength">* Min length {{10}}</div>
+              <div *ngIf="text.errors?.['maxlength']" i18n="MaxLength validation@@Validation-MaxLength">* Max length {{9999}}</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" i18n="News image@@News-Image">Image</label>
+            <input class="form-control" type="file" accept="image/png" (change)="onImageChange($event)">
+            <div class="form-control-sm text-danger">
+              <div *ngIf="!isCorrectImageType" i18n="Image type validation@@Validation-ImageExtension">* Image type must be .png</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" i18n="Close button@@Button-Close">Close</button>
+            <button type="submit"
+               class="btn btn-primary"
+               [disabled]="createForm.invalid || isSubmitted || !isCorrectImageType"
+               i18n="Save button@@Button-Save">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

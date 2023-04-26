@@ -1,0 +1,23 @@
+.news-list-image {
+  height: 300px;
+  width: 100%;
+}
+
+.card-limited {
+  max-height: 600px;
+}
+
+.news-actions-image {
+  width: 30px;
+  height: 30px;
+}
+
+.scroll-top-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  background: none;
+}

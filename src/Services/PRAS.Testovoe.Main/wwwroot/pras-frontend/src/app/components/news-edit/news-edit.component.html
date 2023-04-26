@@ -1,0 +1,51 @@
+<div class="container-md text-center text-light">
+  <div class="col-12 col-sm-7 col-md-5 m-auto">
+    <form [formGroup]="editForm" (ngSubmit)="onEditFormSubmit()" enctype="multipart/form-data">
+      <div class="mb-1">
+        <label class="col-form-label" i18n="News title@@News-Title">Title</label>
+        <input type="text" class="form-control" formControlName="title">
+        <div *ngIf="title.touched && title.invalid"
+            class="form-control-sm text-danger">
+          <div *ngIf="title.errors?.['required']" i18n="Required validation@@Validation-Required">* Required</div>
+          <div *ngIf="title.errors?.['minlength']" i18n="MinLength validation@@Validation-MinLength">* Min length {{10}}</div>
+          <div *ngIf="title.errors?.['maxlength']" i18n="MaxLength validation@@Validation-MaxLength">* Max length {{40}}</div>
+        </div>
+      </div>
+      <div class="mb-1">
+        <label class="col-form-label" i18n="News subtitle@@News-Subtitle">Subtitle</label>
+        <textarea type="text" class="form-control" formControlName="subtitle" rows="4"></textarea>
+        <div *ngIf="subtitle.touched && subtitle.invalid"
+            class="form-control-sm text-danger">
+          <div *ngIf="subtitle.errors?.['required']" i18n="Required validation@@Validation-Required">* Required</div>
+          <div *ngIf="subtitle.errors?.['minlength']" i18n="MinLength validation@@Validation-MinLength">* Min length {{10}}</div>
+          <div *ngIf="subtitle.errors?.['maxlength']" i18n="MaxLength validation@@Validation-MaxLength">* Max length {{200}}</div>
+        </div>
+      </div>
+      <div class="mb-1">
+        <label for="message-text" class="col-form-label" i18n="News text@@News-Text">Text</label>
+        <textarea class="form-control" formControlName="text" rows="10"></textarea>
+        <div *ngIf="text.touched && text.invalid"
+            class="form-control-sm text-danger">
+          <div *ngIf="text.errors?.['required']" i18n="Required validation@@Validation-Required">* Required</div>
+          <div *ngIf="text.errors?.['minlength']" i18n="MinLength validation@@Validation-MinLength">* Min length {{10}}</div>
+          <div *ngIf="text.errors?.['maxlength']" i18n="MaxLength validation@@Validation-MaxLength">* Max length {{9999}}</div>
+        </div>
+      </div>
+      <div class="mb-1">
+        <label class="form-label" i18n="News image@@News-Image">Image</label>
+        <input class="form-control" type="file" accept="image/png" (change)="onImageChange($event)">
+        <div class="form-control-sm text-danger">
+          <div *ngIf="!isCorrectImageType" i18n="Image type validation@@Validation-ImageExtension">* Image type must be .png</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="m-auto">
+          <button *ngIf="formEnabled && editForm.valid" type="submit" class="btn btn-primary" i18n="Save button@@Button-Save">Save</button>
+          <div *ngIf="!formEnabled" class="spinner-border text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

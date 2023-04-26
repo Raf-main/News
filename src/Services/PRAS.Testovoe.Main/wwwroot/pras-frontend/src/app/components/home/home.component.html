@@ -1,0 +1,28 @@
+<header class="background" style="background-image: url('https://static.wikia.nocookie.net/9874f777-a459-42c5-a792-0fbba2459674/scale-to-width/755');">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-8 mx-auto text-center text-light" style="padding: 250px 0px">
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="m-4">
+  <p class="text-uppercase text-light display-6 fw-bold text-center" i18n="Home component latest news text@@Home-LatestNews">Latest News</p>
+</div>
+<div class="row row-cols-1 row-cols-md-2 m-4 g-4">
+  <div *ngFor="let news of newsList; index as i">
+    <div class="col">
+      <a class="text-decoration-none text-dark" routerLink="./news/{{news.id}}">
+        <div class="card h-100">
+          <img src="{{imageApiUrl}}/{{news.imageName}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{news.title}}</h5>
+            <p class="card-text">{{news.subtitle}}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
