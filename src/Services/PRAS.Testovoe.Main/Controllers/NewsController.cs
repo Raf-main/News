@@ -20,12 +20,11 @@ public class NewsController : ControllerBase
     [Authorize(Roles="Admin")]
     public async Task<IActionResult> Create([FromForm] CreateNewsRequest createNewsRequest)
     {
-        Console.WriteLine(createNewsRequest.Image.ContentType.ToString());
         var file = Request.Form.Files.FirstOrDefault();
 
         if (file == null || file.Length < 1)
         {
-            return BadRequest("fail nepr");
+            return BadRequest();
         }
 
         createNewsRequest.Image = file;

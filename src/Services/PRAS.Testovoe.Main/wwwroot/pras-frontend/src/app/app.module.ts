@@ -19,6 +19,9 @@ import { NewsCreateComponent } from './components/news-create/news-create.compon
 import { HomeComponent } from './components/home/home.component';
 import { NewsEditComponent } from './components/news-edit/news-edit.component';
 import { LocaleSwitcherComponent } from './components/locale-switcher/locale-switcher.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { MinLengthComponent } from './components/min-length/min-length.component';
+import { MaxLengthComponent } from './components/max-length/max-length.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { LocaleSwitcherComponent } from './components/locale-switcher/locale-swi
     NewsComponent,
     NotFoundComponent,
     ErrorComponent,
-    LocaleSwitcherComponent
+    LocaleSwitcherComponent,
+    SpinnerComponent,
+    MinLengthComponent,
+    MaxLengthComponent
   ],
   imports: [
     BrowserModule,

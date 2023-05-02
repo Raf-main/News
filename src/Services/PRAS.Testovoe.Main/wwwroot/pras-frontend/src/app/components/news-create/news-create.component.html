@@ -16,8 +16,12 @@
             <div *ngIf="title.touched && title.invalid"
                 class="form-control-sm text-danger">
               <div *ngIf="title.errors?.['required']" i18n="Required validation@@Validation-Required">* Required</div>
-              <div *ngIf="title.errors?.['minlength']" i18n="MinLength validation@@Validation-MinLength">* Min length {{10}}</div>
-              <div *ngIf="title.errors?.['maxlength']" i18n="MaxLength validation@@Validation-MaxLength">* Max length {{40}}</div>
+              <div *ngIf="title.errors?.['minlength']">
+                <app-min-length [minLength]="10"></app-min-length>
+              </div>
+              <div *ngIf="title.errors?.['maxlength']">
+                <app-max-length [maxLength]="40"></app-max-length>
+              </div>
             </div>
           </div>
           <div class="mb-3">
@@ -26,8 +30,12 @@
             <div *ngIf="subtitle.touched && subtitle.invalid"
                 class="form-control-sm text-danger">
               <div *ngIf="subtitle.errors?.['required']" i18n="Required validation@@Validation-Required">* Required</div>
-              <div *ngIf="subtitle.errors?.['minlength']" i18n="MinLength validation@@Validation-MinLength">* Min length {{10}}</div>
-              <div *ngIf="subtitle.errors?.['maxlength']">* Max length 200</div>
+              <div *ngIf="subtitle.errors?.['minlength']">
+                <app-min-length [minLength]="10"></app-min-length>
+              </div>
+              <div *ngIf="subtitle.errors?.['maxlength']">
+                <app-max-length [maxLength]="200"></app-max-length>
+              </div>
             </div>
           </div>
           <div class="mb-3">
@@ -36,8 +44,12 @@
             <div *ngIf="text.touched && text.invalid"
                 class="form-control-sm text-danger">
               <div *ngIf="text.errors?.['required']" i18n="Required validation@@Validation-Required">* Required</div>
-              <div *ngIf="text.errors?.['minlength']" i18n="MinLength validation@@Validation-MinLength">* Min length {{10}}</div>
-              <div *ngIf="text.errors?.['maxlength']" i18n="MaxLength validation@@Validation-MaxLength">* Max length {{9999}}</div>
+              <div *ngIf="text.errors?.['minlength']">
+                <app-min-length [minLength]="10"></app-min-length>
+              </div>
+              <div *ngIf="text.errors?.['maxlength']">
+                <app-max-length [maxLength]="40"></app-max-length>
+              </div>
             </div>
           </div>
           <div class="mb-3">
@@ -49,10 +61,15 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" i18n="Close button@@Button-Close">Close</button>
-            <button type="submit"
-               class="btn btn-primary"
-               [disabled]="createForm.invalid || isSubmitted || !isCorrectImageType"
-               i18n="Save button@@Button-Save">Save</button>
+            <div *ngIf="!isSubmitted">
+              <button type="submit"
+              class="btn btn-primary"
+              [disabled]="createForm.invalid || isSubmitted || !isCorrectImageType"
+              i18n="Save button@@Button-Save">Save</button>
+            </div>
+            <div *ngIf="isSubmitted">
+              <app-spinner></app-spinner>
+            </div>
           </div>
         </form>
       </div>

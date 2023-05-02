@@ -13,7 +13,7 @@
 <div class="row row-cols-1 row-cols-md-2 m-4 g-4">
   <div *ngFor="let news of newsList; index as i">
     <div class="col">
-      <a class="text-decoration-none text-dark" routerLink="./news/{{news.id}}">
+      <a class="text-decoration-none text-dark" routerLink="news/{{news.id}}">
         <div class="card h-100">
           <img src="{{imageApiUrl}}/{{news.imageName}}" class="card-img-top" alt="...">
           <div class="card-body">

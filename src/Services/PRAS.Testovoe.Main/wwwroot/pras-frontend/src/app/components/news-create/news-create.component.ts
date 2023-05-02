@@ -13,6 +13,7 @@ export class NewsCreateComponent implements OnInit {
   title: FormControl = new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(40)]);
   subtitle: FormControl = new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(200)]);
   text: FormControl = new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(9999)]);
+  emailExists: boolean = false;
   isCorrectImageType: boolean = false;
   isSubmitted: boolean = false;
   imageFile: any = null;
@@ -29,7 +30,7 @@ export class NewsCreateComponent implements OnInit {
   }
 
   save() {
-    if(this.isSubmitted){
+    if(this.isSubmitted || !this.isCorrectImageType){
       return;
     }
 
@@ -44,7 +45,7 @@ export class NewsCreateComponent implements OnInit {
 
       this.newsService.Create(formData).subscribe({
         next : (response) => {
-          this.createForm.reset;
+          this.createForm.reset();
           this.isCorrectImageType = false;
           this.isSubmitted = false;
           this.imageFile = null;

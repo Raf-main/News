@@ -96,7 +96,7 @@ export class NewsEditComponent implements OnInit {
 
       this.newsService.Update(this.initialNews!.id ,formData).subscribe({
         next: (v) => {
-          this.router.navigate([`/news/${this.initialNews!.id}`]);
+          this.router.navigate([`news/${this.initialNews!.id}`]);
         },
         error: (e) => {
           console.log(e)
