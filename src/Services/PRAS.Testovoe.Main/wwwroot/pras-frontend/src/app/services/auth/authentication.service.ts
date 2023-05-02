@@ -15,7 +15,7 @@ export class AuthService {
   private loginUrl: string = environment.apiUrl + '/Account/Login';
   private registerUrl: string = environment.apiUrl + '/Account/Register';
   private refreshTokenUrl: string = environment.apiUrl + '/Account/RefreshToken';
-
+  private emailExistsUrl: string = environment.apiUrl + '/Account/EmailExists';
   private readonly tokenKey: string = 'token';
   private readonly userKey: string = 'user';
 
@@ -33,6 +33,10 @@ export class AuthService {
 
   refreshToken() : Observable<RefreshTokenResponse> {
     return this.http.post<RefreshTokenResponse>(this.refreshTokenUrl, "");
+  }
+
+  emailExists(email: string): Observable<boolean> {
+    return this.http.get<boolean>(`${this.emailExistsUrl}?email=${email}`);
   }
 
   saveToken(token: string): void {
@@ -78,6 +82,6 @@ export class AuthService {
   logout(): void {
     this.localStorageService.removeItem(this.tokenKey);
     this.localStorageService.removeItem(this.userKey);
-    this.router.navigate(['./']);
+    this.router.navigate(['/']);
   }
 }

@@ -23,12 +23,13 @@ public class JwtService : IJwtService
         var secretKey = _jwtOptions.GetSymmetricSecurityKey();
         var securityAlgorithm = _jwtOptions.Algorithm ?? SecurityAlgorithms.HmacSha256;
         var signinCredentials = new SigningCredentials(secretKey, securityAlgorithm);
-        var expires = expirationTime ?? _dateTimeProvider.UtcNow().AddMinutes(_jwtOptions.TokenExpirationTimeInMinutes);
+        var expires = expirationTime ?? _dateTimeProvider.Now().AddMinutes(_jwtOptions.TokenExpirationTimeInMinutes);
 
         var tokenOptions = new JwtSecurityToken(
             _jwtOptions.Issuer,
             _jwtOptions.Audience,
             claims,
+            null,
             expires,
             signingCredentials: signinCredentials
         );

@@ -21,50 +21,59 @@ export class JwtInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>>
   {
     if (this.authService.isAuthenticated()){
-      request = request.clone({
-        setHeaders: {
-          Authorization: `Bearer ${this.authService.getToken()}`
+      request = this.cloneAuthHeaders(request);
+
+      return next.handle(request).pipe(catchError(error => {
+        const isError = error instanceof HttpErrorResponse;
+        const isStatus401 = error.status === 401;
+
+        if(isError && isStatus401)
+        {
+          return this.handle401(request,next);
         }
-      });
+
+        return throwError(() => new Error(error));
+      }))
     }
 
-    return next.handle(request).pipe(catchError(error => {
-      const isError = error instanceof HttpErrorResponse;
-      const isStatus401 = error.status === 401;
-
-      if(isError && isStatus401)
-      {
-        return this.handle401(request,next);
-      }
-
-      return throwError(() => new Error(error));
-    }))
+    return next.handle(request);
   }
 
   handle401(request: HttpRequest<unknown>, next: HttpHandler)
   {
     if (!this.isRefreshing) {
       this.isRefreshing = true;
-    }
 
-    return this.authService.refreshToken().pipe(
+      return this.authService.refreshToken().pipe(
       switchMap((response: LoginResponse) => {
-        this.isRefreshing = false;
-
         this.authService.saveToken(response.accessToken);
         this.authService.saveUser(response.user);
+
+        this.isRefreshing = false;
+        request = this.cloneAuthHeaders(request);
 
         return next.handle(request);
       }),
       catchError((error) => {
         this.isRefreshing = false;
-
         if (error.status == '403') {
-          this.authService.logout;
+          this.authService.logout();
         }
 
         return throwError(() => new Error(error));
       })
-   );
+    );
+    }
+
+    return throwError(() => new Error());
+  }
+
+  cloneAuthHeaders(request: HttpRequest<unknown>)
+  {
+    return request.clone({
+      setHeaders: {
+        Authorization: `Bearer ${this.authService.getToken()}`
+      }
+    });
   }
 }
