@@ -119,12 +119,19 @@ public class AccountService : IAccountService
     {
         var user = await _userManager.FindByEmailAsync(email);
 
-        if(user == null)
+        if (user == null)
         {
             throw new NotFoundException("User not found");
         }
 
         return await _userManager.GetRolesAsync(user);
+    }
+
+    public async Task<bool> EmailExists(string email)
+    {
+        var user = await _userManager.FindByEmailAsync(email);
+
+        return user != null;
     }
 
     private async Task<IEnumerable<Claim>> GetClaimsAsync(User user)

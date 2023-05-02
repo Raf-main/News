@@ -88,6 +88,7 @@ app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseCors(opt=>{
     opt.AllowAnyHeader();
+    opt.AllowCredentials();
     opt.AllowAnyMethod();
     opt.WithOrigins("http://localhost:4200");
 });

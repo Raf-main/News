@@ -93,4 +93,17 @@ public class AccountController : ControllerBase
 
         return Ok(refreshTokenResponse);
     }
+
+    [HttpGet]
+    public async Task<IActionResult> EmailExists(string email)
+    {
+        if(string.IsNullOrEmpty(email))
+        {
+            return BadRequest();
+        }
+
+        var result = await _accountService.EmailExists(email);
+
+        return Ok(result);
+    }
 }

@@ -11,15 +11,20 @@
                    i18n-placeholder="Username Placeholder @@Register-Placeholder-Username" formControlName="userName" />
               <div *ngIf="userName.touched && userName.invalid" class="form-control-sm text-danger">
                 <div *ngIf="userName.errors?.['required']" i18n="Required validation@@Validation-Required">* Required</div>
-                <div *ngIf="userName.errors?.['minlength']" i18n="Min length validation@@Validation-MinLength">* Min length {{4}}</div>
-                <div *ngIf="userName.errors?.['maxlength']" i18n="Max length validation@@Validation-MaxLength">* Max length {{20}}</div>
+                <div *ngIf="userName.errors?.['minlength']">
+                  <app-min-length [minLength]="4"></app-min-length>
+                </div>
+                <div *ngIf="userName.errors?.['maxlength']">
+                  <app-max-length [maxLength]="20"></app-max-length>
+                </div>
               </div>
 
               <input type="text" class="form-control mt-4 py-2" placeholder="Email" formControlName="email"
-                   i18n-placeholder="Email Placeholder @@Register-Placeholder-Email" />
-              <div *ngIf="email.touched && email.invalid" class="form-control-sm text-danger">
+                   i18n-placeholder="Email Placeholder @@Register-Placeholder-Email" (blur)="checkEmailExists($event)" />
+              <div *ngIf="email.touched && (email.invalid || emailExists)" class="form-control-sm text-danger">
                 <div *ngIf="email.errors?.['required']" i18n="Required validation@@Validation-Required">* Required</div>
                 <div *ngIf="email.errors?.['email']" i18n="Email validation@@Validation-Email">* It's not email, bro</div>
+                <div *ngIf="emailExists" i18n="Email exists validation@@Validation-EmailExists">* Email is already in use</div>
               </div>
 
               <input type="password" class="form-control mt-4 py-2" placeholder="Password" formControlName="password"
@@ -27,12 +32,16 @@
               <div *ngIf="password.touched && password.invalid"
                    class="form-control-sm text-danger">
                 <div *ngIf="password.errors?.['required']" i18n="Required validation@@Validation-Required">* Required</div>
-                <div *ngIf="password.errors?.['minlength']" i18n="Min length validation@@Validation-MinLength">* Min length {{4}}</div>
-                <div *ngIf="password.errors?.['maxlength']" i18n="Max length validation@@Validation-MaxLength">* Max length {{20}}</div>
+                <div *ngIf="password.errors?.['minlength']">
+                  <app-min-length [minLength]="4"></app-min-length>
+                </div>
+                <div *ngIf="password.errors?.['maxlength']">
+                  <app-max-length [maxLength]="20"></app-max-length>
+                </div>
               </div>
 
               <div class="text-center mt-3">
-                <button class="btn btn-primary" [disabled]="registerForm.invalid || isSubmitted" i18n="Register button@@Button-Register">Register</button>
+                <button class="btn btn-primary" [disabled]="!isSubmitableForm()" i18n="Register button@@Button-Register">Register</button>
               </div>
               <div class="text-center mt-2">
                 <a class="nav-link" routerLink="/login" i18n="Register already have an account@@Register-AlreadyHaveAnAccount-Link">Already have an account ?</a>

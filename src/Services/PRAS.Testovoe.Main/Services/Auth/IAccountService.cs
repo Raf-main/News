@@ -9,4 +9,5 @@ public interface IAccountService
     Task RegisterAsync(RegistrationRequest registrationRequest);
     Task<RefreshTokenResult> RefreshTokenAsync(RefreshTokenRequest refreshRequest);
     Task<IEnumerable<string>> GetRolesAsync(string email);
+    Task<bool> EmailExists(string email);
 }
