@@ -34,11 +34,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/news-create/news-create.component.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">32</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/news-create/news-create.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">46</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/news-edit/news-edit.component.html</context>
@@ -46,11 +46,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/news-edit/news-edit.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">23</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/news-edit/news-edit.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">37</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/register/register.component.html</context>
@@ -58,11 +58,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/register/register.component.html</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="linenumber">25</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/register/register.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">34</context>
         </context-group>
         <note priority="1" from="description">Required validation</note>
       </trans-unit>
@@ -74,7 +74,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/register/register.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">26</context>
         </context-group>
         <note priority="1" from="description">Email validation</note>
       </trans-unit>
@@ -101,6 +101,22 @@
           <context context-type="linenumber">28</context>
         </context-group>
         <note priority="1" from="description">Login don&apos;t have an account</note>
+      </trans-unit>
+      <trans-unit id="Validation-MaxLength" datatype="html">
+        <source>* Max length</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/max-length/max-length.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">Max length validation</note>
+      </trans-unit>
+      <trans-unit id="Validation-MinLength" datatype="html">
+        <source>* Min length</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/min-length/min-length.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">Min length validation</note>
       </trans-unit>
       <trans-unit id="Navbar-News-Link" datatype="html">
         <source>News</source>
@@ -162,83 +178,15 @@
         </context-group>
         <note priority="1" from="description">News title</note>
       </trans-unit>
-      <trans-unit id="Validation-MinLength" datatype="html">
-        <source>* Min length <x id="INTERPOLATION" equiv-text="{{10}}"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/news-create/news-create.component.html</context>
-          <context context-type="linenumber">19</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/news-create/news-create.component.html</context>
-          <context context-type="linenumber">29</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/news-create/news-create.component.html</context>
-          <context context-type="linenumber">39</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/news-edit/news-edit.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/news-edit/news-edit.component.html</context>
-          <context context-type="linenumber">20</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/news-edit/news-edit.component.html</context>
-          <context context-type="linenumber">30</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/register/register.component.html</context>
-          <context context-type="linenumber">14</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/register/register.component.html</context>
-          <context context-type="linenumber">30</context>
-        </context-group>
-        <note priority="1" from="description">MinLength validation</note>
-      </trans-unit>
-      <trans-unit id="Validation-MaxLength" datatype="html">
-        <source>* Max length <x id="INTERPOLATION" equiv-text="{{40}}"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/news-create/news-create.component.html</context>
-          <context context-type="linenumber">20</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/news-create/news-create.component.html</context>
-          <context context-type="linenumber">40</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/news-edit/news-edit.component.html</context>
-          <context context-type="linenumber">11</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/news-edit/news-edit.component.html</context>
-          <context context-type="linenumber">21</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/news-edit/news-edit.component.html</context>
-          <context context-type="linenumber">31</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/register/register.component.html</context>
-          <context context-type="linenumber">15</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/register/register.component.html</context>
-          <context context-type="linenumber">31</context>
-        </context-group>
-        <note priority="1" from="description">MaxLength validation</note>
-      </trans-unit>
       <trans-unit id="News-Subtitle" datatype="html">
         <source>Subtitle</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/news-create/news-create.component.html</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">28</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/news-edit/news-edit.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">19</context>
         </context-group>
         <note priority="1" from="description">News subtitle</note>
       </trans-unit>
@@ -246,11 +194,11 @@
         <source>Text</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/news-create/news-create.component.html</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">42</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/news-edit/news-edit.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">33</context>
         </context-group>
         <note priority="1" from="description">News text</note>
       </trans-unit>
@@ -258,11 +206,11 @@
         <source>Image</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/news-create/news-create.component.html</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">56</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/news-edit/news-edit.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">47</context>
         </context-group>
         <note priority="1" from="description">News image</note>
       </trans-unit>
@@ -270,11 +218,11 @@
         <source>* Image type must be .png</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/news-create/news-create.component.html</context>
-          <context context-type="linenumber">47</context>
+          <context context-type="linenumber">59</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/news-edit/news-edit.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">50</context>
         </context-group>
         <note priority="1" from="description">Image type validation</note>
       </trans-unit>
@@ -282,7 +230,7 @@
         <source>Close</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/news-create/news-create.component.html</context>
-          <context context-type="linenumber">51</context>
+          <context context-type="linenumber">63</context>
         </context-group>
         <note priority="1" from="description">Close button</note>
       </trans-unit>
@@ -290,11 +238,11 @@
         <source>Save</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/news-create/news-create.component.html</context>
-          <context context-type="linenumber">55</context>
+          <context context-type="linenumber">68</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/news-edit/news-edit.component.html</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">55</context>
         </context-group>
         <note priority="1" from="description">Save button</note>
       </trans-unit>
@@ -310,15 +258,23 @@
         <source>Email</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/register/register.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">22</context>
         </context-group>
         <note priority="1" from="description">Email Placeholder </note>
+      </trans-unit>
+      <trans-unit id="Validation-EmailExists" datatype="html">
+        <source>* Email is already in use</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/register/register.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <note priority="1" from="description">Email exists validation</note>
       </trans-unit>
       <trans-unit id="Register-Placeholder-Password" datatype="html">
         <source>Password</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/register/register.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">30</context>
         </context-group>
         <note priority="1" from="description">Password Placeholder </note>
       </trans-unit>
@@ -326,7 +282,7 @@
         <source>Register</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/register/register.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">44</context>
         </context-group>
         <note priority="1" from="description">Register button</note>
       </trans-unit>
@@ -334,7 +290,7 @@
         <source>Already have an account ?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/register/register.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">47</context>
         </context-group>
         <note priority="1" from="description">Register already have an account</note>
       </trans-unit>
